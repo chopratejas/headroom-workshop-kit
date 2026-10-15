@@ -1,0 +1,13 @@
+
+  Headroom Enterprise sandbox  ·  everything is installed
+
+  0. gh auth login -w; exec bash   connect your GitHub (read-only use, for the github MCP server)
+  1. headroom login          sign this sandbox in to the Headroom control plane
+  2. headroom start          start the proxy (tool search, routing, compression, observability)
+  3. claude                  log in with your own Claude account, then pick a task:
+                             cat ~/workshop/TASKS.md
+     (or: headroom wrap codex)
+
+  Your savings:   headroom status   ·   curl -s localhost:8787/stats | jq '.tokens'
+  MCP servers:    github (read-only), context7, fetch  ·  check with: claude mcp list
+

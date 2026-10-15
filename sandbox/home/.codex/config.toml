@@ -1,0 +1,10 @@
+[mcp_servers.github]
+command = "github-mcp-server"
+args = ["stdio", "--read-only", "--toolsets", "repos,issues,pull_requests,actions"]
+env_vars = ["GITHUB_PERSONAL_ACCESS_TOKEN"]
+
+[mcp_servers.context7]
+command = "context7-mcp"
+
+[mcp_servers.fetch]
+command = "mcp-server-fetch"

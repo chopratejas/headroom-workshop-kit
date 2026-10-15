@@ -1,0 +1,8 @@
+{
+  "hasCompletedOnboarding": true,
+  "mcpServers": {
+    "github": {"type": "stdio", "command": "github-mcp-server", "args": ["stdio", "--read-only", "--toolsets", "repos,issues,pull_requests,actions"]},
+    "context7": {"type": "stdio", "command": "context7-mcp", "args": []},
+    "fetch": {"type": "stdio", "command": "mcp-server-fetch", "args": []}
+  }
+}

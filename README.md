@@ -1,5 +1,27 @@
 # Headroom hands-on kit
 
+## In the workshop sandbox (recommended)
+
+You get a sandbox with Headroom Enterprise, Claude Code, Codex and three real MCP
+servers (GitHub read-only, Context7, Fetch) already installed. Open the link you
+were given, then:
+
+```bash
+gh auth login -w && exec bash   # your GitHub, used read-only by the github MCP server
+headroom login                  # signs this sandbox in to the Headroom control plane
+headroom start                  # starts the proxy: compression, tool search, routing, observability
+claude                          # log in with your own Claude account
+```
+
+Then pick a task from [TASKS.md](TASKS.md). Check your savings with
+`headroom status` or `curl -s localhost:8787/stats | jq '.tokens'`, and look for
+your sandbox in the Headroom portal fleet view.
+
+Facilitators: `sandbox/workshop.py` builds the snapshot and creates one sandbox
+per attendee (see the docstring).
+
+## On your own laptop (open source)
+
 See what your coding agent actually sends to the model, and how much of it
 Headroom removes. You point Claude Code or Codex at Headroom, give it real work
 from [TASKS.md](TASKS.md), and watch the numbers.

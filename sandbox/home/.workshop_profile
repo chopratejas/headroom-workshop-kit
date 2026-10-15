@@ -1,0 +1,7 @@
+# Loaded by ~/.bashrc. Per-sandbox credentials live in ~/.workshop.env (written at create time).
+if [ -f "$HOME/.workshop.env" ]; then set -a; . "$HOME/.workshop.env"; set +a; fi
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export ANTHROPIC_BASE_URL=http://127.0.0.1:8787
+# Each attendee's own GitHub login (gh auth login) beats a shared token: 5,000 calls/hour per user.
+if [ -z "$GITHUB_PERSONAL_ACCESS_TOKEN" ] && gh auth status >/dev/null 2>&1; then export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"; fi
+if [ -t 1 ] && [ -z "$WORKSHOP_WELCOMED" ]; then export WORKSHOP_WELCOMED=1; cat "$HOME/WELCOME.txt"; fi
