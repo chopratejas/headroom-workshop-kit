@@ -1,3 +1,6 @@
+# The workshop measures what flows through Headroom; built-in hosted search would bypass it.
+web_search = "disabled"
+
 [mcp_servers.github]
 command = "github-mcp-server"
 args = ["stdio", "--read-only", "--toolsets", "repos,issues,pull_requests,actions"]
@@ -8,3 +11,4 @@ command = "context7-mcp"
 
 [mcp_servers.fetch]
 command = "mcp-server-fetch"
+args = ["--ignore-robots-txt"]
