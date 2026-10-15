@@ -1,0 +1,2956 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-28624-000",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-92880-001",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-85739-002",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.4",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-78144-003",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.4",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-63519-004",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.3",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-26047-005",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-75867-006",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.6",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-16669-007",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-63562-008",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.13",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-85453-009",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.3",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-13312-010",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.5",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-48765-011",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.5",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-61176-012",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-94039-013",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.2",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-40108-014",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.13",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-26641-015",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-24520-016",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.6",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-53830-017",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.7",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-94326-018",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-48420-019",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.4",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-68404-020",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-90987-021",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.7",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-41302-022",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.2",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-14421-023",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "256Mi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": false,
+            "restartCount": 37,
+            "state": {
+              "waiting": {
+                "reason": "CrashLoopBackOff"
+              }
+            },
+            "lastState": {
+              "terminated": {
+                "reason": "OOMKilled",
+                "exitCode": 137
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-63874-024",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-93139-025",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-59382-026",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.3",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-15832-027",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.13",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-69752-028",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.2",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-62183-029",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.8",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-51487-030",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.8",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-99605-031",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.6",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-87014-032",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.8",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-57627-033",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-63203-034",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-41388-035",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.13",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-50607-036",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.4",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-79489-037",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-94007-038",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-32019-039",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.13",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-65096-040",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.5",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-47006-041",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.2",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-47359-042",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-14227-043",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-30170-044",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.6",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-77443-045",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.2",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-84971-046",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-83118-047",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.5",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-71714-048",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-90289-049",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-17408-050",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.7",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-61726-051",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.2",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-24184-052",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.6",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-28727-053",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.11",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-41482-054",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.3",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-77999-055",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.3",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-74410-056",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-19608-057",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.10",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-11309-058",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-44596-059",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.4",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-31521-060",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.4",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-42523-061",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.7",
+            "resources": {
+              "limits": {
+                "memory": "256Mi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": false,
+            "restartCount": 37,
+            "state": {
+              "waiting": {
+                "reason": "CrashLoopBackOff"
+              }
+            },
+            "lastState": {
+              "terminated": {
+                "reason": "OOMKilled",
+                "exitCode": 137
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-70613-062",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.12",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-66225-063",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.9",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "auth-77635-064",
+        "namespace": "prod",
+        "labels": {
+          "app": "auth",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "auth",
+            "image": "acme/auth:2026.10.13",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "auth",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "search-55551-065",
+        "namespace": "prod",
+        "labels": {
+          "app": "search",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "search",
+            "image": "acme/search:2026.10.5",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "search",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "checkout-33687-066",
+        "namespace": "prod",
+        "labels": {
+          "app": "checkout",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "checkout",
+            "image": "acme/checkout:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "checkout",
+            "ready": true,
+            "restartCount": 1,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "cart-72123-067",
+        "namespace": "prod",
+        "labels": {
+          "app": "cart",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "cart",
+            "image": "acme/cart:2026.10.5",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "cart",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "payments-55965-068",
+        "namespace": "prod",
+        "labels": {
+          "app": "payments",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "payments",
+            "image": "acme/payments:2026.10.1",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "payments",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "inventory-70374-069",
+        "namespace": "prod",
+        "labels": {
+          "app": "inventory",
+          "tier": "backend"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "inventory",
+            "image": "acme/inventory:2026.10.3",
+            "resources": {
+              "limits": {
+                "memory": "1Gi",
+                "cpu": "500m"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "containerStatuses": [
+          {
+            "name": "inventory",
+            "ready": true,
+            "restartCount": 0,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-13T09:00:00Z"
+              }
+            },
+            "lastState": {}
+          }
+        ]
+      }
+    }
+  ]
+}
