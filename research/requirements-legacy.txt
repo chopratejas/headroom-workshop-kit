@@ -1,0 +1,21 @@
+# The Acme reporting service has not been updated since 2021.
+django==3.2.0
+flask==1.1.2
+werkzeug==1.0.1
+jinja2==2.11.2
+requests==2.25.0
+urllib3==1.26.4
+pyyaml==5.3
+pillow==8.1.0
+lxml==4.6.2
+cryptography==3.3.1
+paramiko==2.7.2
+sqlalchemy==1.3.23
+celery==5.0.5
+numpy==1.19.5
+pandas==1.2.3
+aiohttp==3.7.3
+twisted==20.3.0
+setuptools==50.3.2
+certifi==2020.12.5
+idna==2.10
