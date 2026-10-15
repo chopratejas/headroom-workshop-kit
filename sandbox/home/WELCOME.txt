@@ -8,6 +8,7 @@
                              cat ~/workshop/TASKS.md
      (or: headroom wrap codex)
 
-  Your savings:   headroom status   ·   curl -s localhost:8787/stats | jq '.tokens'
+  Check:          headroom auth status   ·   headroom whoami
+  Your savings:   headroom savings   ·   curl -s localhost:8787/stats | jq '.tokens'
   MCP servers:    github (read-only), context7, fetch  ·  check with: claude mcp list
 

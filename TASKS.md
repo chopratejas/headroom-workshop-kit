@@ -10,7 +10,7 @@ work. Every task uses real MCP servers on real data:
 When it finishes, check your savings:
 
 ```bash
-headroom status
+headroom savings
 curl -s localhost:8787/stats | jq '.tokens'
 ```
 
@@ -49,9 +49,9 @@ Fetch https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-an
 ```
 
 ### 4. Compare outage patterns
-**What it does:** reads months of status history and finds what keeps going wrong.
+**What it does:** reads GitHub's real incident feed and finds what keeps going wrong.
 ```
-Fetch https://www.githubstatus.com/history and the incident pages it links to for the last three months. Classify every incident by affected service and cause. Which services fail most often, and what does that suggest about their architecture?
+Fetch https://www.githubstatus.com/api/v2/incidents.json (GitHub's incident feed, raw JSON). Classify every incident in it by affected service and cause, using the incident updates. Which services fail most often, and what does that suggest about their architecture?
 ```
 
 ### 5. Production incident in an issue tracker

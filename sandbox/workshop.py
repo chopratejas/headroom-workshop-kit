@@ -23,11 +23,11 @@ import os
 import sys
 from pathlib import Path
 
-SNAPSHOT = "headroom-workshop-0.4.3"
+SNAPSHOT = "headroom-workshop-0.4.3-r2"
 LABEL = {"app": "headroom-workshop"}
 KIT = Path(__file__).resolve().parent.parent
 WHEELHOUSE = KIT / "sandbox" / "headroom-enterprise-wheelhouse-0.4.3.tgz"
-NODE = "22.11.0"
+NODE = "22.20.0"  # 22.12+ needed: mcp-server-fetch's readabilipy require()s an ES module
 GITHUB_MCP = "v0.20.2"
 GH_CLI = "2.62.0"
 

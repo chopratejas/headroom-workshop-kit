@@ -14,7 +14,7 @@ claude                          # log in with your own Claude account
 ```
 
 Then pick a task from [TASKS.md](TASKS.md). Check your savings with
-`headroom status` or `curl -s localhost:8787/stats | jq '.tokens'`, and look for
+`headroom savings` or `curl -s localhost:8787/stats | jq '.tokens'` (`headroom auth status` shows your login), and look for
 your sandbox in the Headroom portal fleet view.
 
 Facilitators: `sandbox/workshop.py` builds the snapshot and creates one sandbox
