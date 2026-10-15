@@ -2,11 +2,13 @@
   Headroom Enterprise sandbox  ·  everything is installed
 
   0. gh auth login -w; exec bash   connect your GitHub (read-only use, for the github MCP server)
-  1. headroom login          sign this sandbox in to the Headroom control plane
+  1. headroom login && headroom route apply
+                             sign in to the Headroom control plane; let routing pick models
   2. headroom start          start the proxy (tool search, routing, compression, observability)
-  3. claude                  log in with your own Claude account, then pick a task:
+  3. headroom wrap claude    log in with your own Claude account, then pick a task:
                              cat ~/workshop/TASKS.md
-     (or: headroom wrap codex)
+     or Codex:  codex login --device-auth   (sign in with a code; the browser flow can't reach this machine)
+                headroom wrap codex
 
   Check:          headroom auth status   ·   headroom whoami
   Your savings:   headroom savings   ·   curl -s localhost:8787/stats | jq '.tokens'

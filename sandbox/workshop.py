@@ -1,9 +1,10 @@
 """Prebaked Headroom Enterprise sandboxes on Daytona for the hands-on session.
 
     python sandbox/workshop.py snapshot                 # build the image once (~10 min)
-    python sandbox/workshop.py create --count 40        # one sandbox per attendee
+    python sandbox/workshop.py create --count 40        # one sandbox per attendee, 10 at a time
     python sandbox/workshop.py links                    # print each attendee's terminal link again
     python sandbox/workshop.py delete                   # tear every workshop sandbox down
+    python sandbox/workshop.py delete cto-01 r6test-01  # delete only these
 
 Credentials never go into the image. They are read from an env file (default
 ~/env.txt) and passed to each sandbox as environment variables when it is
@@ -23,10 +24,12 @@ import os
 import sys
 from pathlib import Path
 
-SNAPSHOT = "headroom-workshop-0.4.3-r3"
+SNAPSHOT = "headroom-workshop-0.4.3-r6"
 LABEL = {"app": "headroom-workshop"}
 KIT = Path(__file__).resolve().parent.parent
 WHEELHOUSE = KIT / "sandbox" / "headroom-enterprise-wheelhouse-0.4.3.tgz"
+# Plugin builds newer than the wheelhouse (unreleased fixes), installed over it. Private: gitignored.
+OVERRIDES = KIT / "sandbox" / "overrides"
 NODE = "22.20.0"  # 22.12+ needed: mcp-server-fetch's readabilipy require()s an ES module
 GITHUB_MCP = "v0.20.2"
 GH_CLI = "2.62.0"
@@ -54,6 +57,8 @@ def client(env: dict):
 def image():
     from daytona import Image
 
+    if not any(OVERRIDES.glob("*.whl")):
+        sys.exit(f"No plugin wheels in {OVERRIDES}. Build them from the fix branches first (uv build --wheel -o {OVERRIDES}).")
     if not WHEELHOUSE.is_file():
         sys.exit(
             f"Wheelhouse not found at {WHEELHOUSE}. Download the stable release from the portal first."
@@ -73,6 +78,11 @@ def image():
             "mkdir -p /opt/headroom/wh && tar -xzf /opt/headroom/wheelhouse.tgz -C /opt/headroom/wh --strip-components=1",
             "pip install --no-cache-dir --only-binary=:all: --find-links=/opt/headroom/wh headroom-enterprise",
         )
+        .add_local_dir(str(OVERRIDES), "/opt/headroom/overrides")
+        .run_commands(
+            "pip install --no-cache-dir --no-deps --force-reinstall /opt/headroom/overrides/*.whl",
+            "pip check",
+        )
         .add_local_dir(str(KIT / "sandbox" / "home"), "/opt/headroom/home")
         .run_commands(
             "cp -r /opt/headroom/home/. /root/ && cat /root/.bashrc_append >> /root/.bashrc && rm /root/.bashrc_append",
@@ -89,7 +99,7 @@ def cmd_snapshot(env: dict, args) -> None:
     daytona = client(env)
     daytona.snapshot.create(
         CreateSnapshotParams(
-            name=args.name, image=image(), resources=Resources(cpu=2, memory=4, disk=8)
+            name=args.name, image=image(), resources=Resources(cpu=2, memory=4, disk=7)
         ),
         on_logs=lambda chunk: print(chunk, end=""),
     )
@@ -112,26 +122,51 @@ def sandbox_env(env: dict, developer_id: str) -> dict:
     return out
 
 
-def cmd_create(env: dict, args) -> None:
-    """Each sandbox is one attendee: same prebaked snapshot, its own developer id and env file."""
+def create_one(daytona, env: dict, args, developer_id: str) -> str:
     from daytona import CreateSandboxFromSnapshotParams
 
+    sandbox = daytona.create(
+        CreateSandboxFromSnapshotParams(
+            snapshot=args.name,
+            labels={**LABEL, "developer": developer_id},
+            auto_stop_interval=args.auto_stop,
+            auto_delete_interval=args.auto_delete,
+        ),
+        timeout=300,
+    )
+    env_file = "".join(f"{k}={v}\n" for k, v in sandbox_env(env, developer_id).items())
+    sandbox.fs.upload_file(env_file.encode(), "/root/.workshop.env")
+    sandbox.process.exec("chmod 600 /root/.workshop.env")
+    return f"{developer_id}\t{sandbox.id}\t{ssh_command(sandbox, args.hours)}"
+
+
+def cmd_create(env: dict, args) -> None:
+    """Each sandbox is one attendee: same prebaked snapshot, its own developer id and env file.
+
+    Created `--parallel` at a time; each line is printed as its sandbox becomes ready, so the
+    order is not the attendee order. A failed sandbox is reported and the rest carry on.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    from daytona import DaytonaError
+
+    sandbox_env(env, "check")  # fail before creating anything if credentials are missing
     daytona = client(env)
-    for i in range(args.start, args.start + args.count):
-        developer_id = f"{args.prefix}-{i:02d}"
-        sandbox = daytona.create(
-            CreateSandboxFromSnapshotParams(
-                snapshot=args.name,
-                labels={**LABEL, "developer": developer_id},
-                auto_stop_interval=args.auto_stop,
-                auto_delete_interval=args.auto_delete,
-            ),
-            timeout=300,
+    ids = [f"{args.prefix}-{i:02d}" for i in range(args.start, args.start + args.count)]
+    failed = []
+    with ThreadPoolExecutor(max_workers=args.parallel) as pool:
+        jobs = {pool.submit(create_one, daytona, env, args, d): d for d in ids}
+        for job in as_completed(jobs):
+            try:
+                print(job.result(), flush=True)
+            except DaytonaError as e:
+                failed.append(jobs[job])
+                print(f"{jobs[job]}: not created ({e})", file=sys.stderr, flush=True)
+    if failed:
+        sys.exit(
+            f"{len(failed)} of {len(ids)} sandboxes failed: {' '.join(sorted(failed))}. "
+            "Retry each with --start N --count 1 (check `delete` first if one was half-created)."
         )
-        env_file = "".join(f"{k}={v}\n" for k, v in sandbox_env(env, developer_id).items())
-        sandbox.fs.upload_file(env_file.encode(), "/root/.workshop.env")
-        sandbox.process.exec("chmod 600 /root/.workshop.env")
-        print(f"{developer_id}\t{sandbox.id}\t{ssh_command(sandbox, args.hours)}", flush=True)
 
 
 def ssh_command(sandbox, hours: int) -> str:
@@ -140,8 +175,10 @@ def ssh_command(sandbox, hours: int) -> str:
 
 
 def workshop_sandboxes(daytona):
-    found = daytona.list(labels=LABEL)
-    return getattr(found, "items", found)
+    from daytona import ListSandboxesQuery, SandboxState
+
+    gone = {SandboxState.DESTROYING, SandboxState.DESTROYED}  # delete is async; skip the leftovers
+    return [s for s in daytona.list(ListSandboxesQuery(labels=LABEL)) if s.state not in gone]
 
 
 def cmd_links(env: dict, args) -> None:
@@ -152,10 +189,18 @@ def cmd_links(env: dict, args) -> None:
 
 
 def cmd_delete(env: dict, args) -> None:
+    """Delete the named sandboxes (developer ids), or every workshop sandbox when none are named."""
     daytona = client(env)
+    names = set(args.developers)
     for sandbox in workshop_sandboxes(daytona):
+        developer_id = sandbox.labels.get("developer")
+        if names and developer_id not in names:
+            continue
         daytona.delete(sandbox)
-        print(f"deleted {sandbox.labels.get('developer')} {sandbox.id}")
+        names.discard(developer_id)
+        print(f"deleted {developer_id} {sandbox.id}")
+    if args.developers and names:
+        print(f"not found: {' '.join(sorted(names))}", file=sys.stderr)
 
 
 def main() -> None:
@@ -177,9 +222,11 @@ def main() -> None:
         "--auto-delete", type=int, default=1440, help="minutes stopped before deleting"
     )
     create.add_argument("--hours", type=int, default=6, help="how long each SSH link stays valid")
+    create.add_argument("--parallel", type=int, default=10, help="sandboxes created at once")
     links = sub.add_parser("links")
     links.add_argument("--hours", type=int, default=6)
-    sub.add_parser("delete")
+    delete = sub.add_parser("delete")
+    delete.add_argument("developers", nargs="*", help="developer ids to delete; none = all")
     args = parser.parse_args()
     env = read_env(args.env_file)
     {"snapshot": cmd_snapshot, "create": cmd_create, "links": cmd_links, "delete": cmd_delete}[
