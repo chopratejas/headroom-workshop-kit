@@ -13,6 +13,7 @@ created, so a snapshot can be shared and every secret stays revocable:
     DAYTONA_API_KEY                     Daytona account
     HEADROOM_TOKEN, HEADROOM_ORG        org access token (hrta_...) and org slug for `headroom login`
     HEADROOM_KOMPRESS_ENDPOINT[_TOKEN]  hosted Kompress model
+    ROUTEMEGOOD_CLEF_URL, _TOKEN        optional; Clef /v1/systemone endpoint for complexity routing
     WORKSHOP_GITHUB_PAT                 optional; fine-grained, read-only, public repos only
 
 Everything an attendee can read inside their sandbox, including these values,
@@ -24,17 +25,21 @@ import os
 import sys
 from pathlib import Path
 
-SNAPSHOT = "headroom-workshop-0.4.3-r6"
+SNAPSHOT = "headroom-workshop-0.4.3-r9"
 LABEL = {"app": "headroom-workshop"}
 KIT = Path(__file__).resolve().parent.parent
 WHEELHOUSE = KIT / "sandbox" / "headroom-enterprise-wheelhouse-0.4.3.tgz"
-# Plugin builds newer than the wheelhouse (unreleased fixes), installed over it. Private: gitignored.
+# Builds newer than the wheelhouse (unreleased fixes), installed over it: plugin wheels, and
+# optionally a headroom-ai core wheel plus a headroom-enterprise wheel that pins it. Private: gitignored.
 OVERRIDES = KIT / "sandbox" / "overrides"
 NODE = "22.20.0"  # 22.12+ needed: mcp-server-fetch's readabilipy require()s an ES module
 GITHUB_MCP = "v0.20.2"
 GH_CLI = "2.62.0"
 
-FORWARDED = ["HEADROOM_KOMPRESS_ENDPOINT", "HEADROOM_KOMPRESS_ENDPOINT_TOKEN"]
+FORWARDED = [
+    "HEADROOM_KOMPRESS_ENDPOINT", "HEADROOM_KOMPRESS_ENDPOINT_TOKEN",
+    "ROUTEMEGOOD_CLEF_URL", "ROUTEMEGOOD_CLEF_TOKEN",
+]
 
 
 def read_env(path: Path) -> dict:
@@ -81,11 +86,15 @@ def image():
         .add_local_dir(str(OVERRIDES), "/opt/headroom/overrides")
         .run_commands(
             "pip install --no-cache-dir --no-deps --force-reinstall /opt/headroom/overrides/*.whl",
+            # A newer core can add dependencies; resolve them without touching the overrides.
+            "pip install --no-cache-dir --only-binary=:all: --find-links=/opt/headroom/wh /opt/headroom/overrides/*.whl",
             "pip check",
         )
         .add_local_dir(str(KIT / "sandbox" / "home"), "/opt/headroom/home")
         .run_commands(
             "cp -r /opt/headroom/home/. /root/ && cat /root/.bashrc_append >> /root/.bashrc && rm /root/.bashrc_append",
+            # One AGENTS.md: Codex reads ~/.codex/AGENTS.md, Claude Code imports it from ~/.claude/CLAUDE.md.
+            "ln -s /root/AGENTS.md /root/.codex/AGENTS.md",
             "git clone --depth 1 https://github.com/chopratejas/headroom-workshop-kit /root/workshop",
             "headroom version || true",
         )
@@ -191,16 +200,17 @@ def cmd_links(env: dict, args) -> None:
 def cmd_delete(env: dict, args) -> None:
     """Delete the named sandboxes (developer ids), or every workshop sandbox when none are named."""
     daytona = client(env)
-    names = set(args.developers)
+    wanted = set(args.developers)
+    found = set()
     for sandbox in workshop_sandboxes(daytona):
         developer_id = sandbox.labels.get("developer")
-        if names and developer_id not in names:
+        if wanted and developer_id not in wanted:
             continue
         daytona.delete(sandbox)
-        names.discard(developer_id)
+        found.add(developer_id)
         print(f"deleted {developer_id} {sandbox.id}")
-    if args.developers and names:
-        print(f"not found: {' '.join(sorted(names))}", file=sys.stderr)
+    if wanted - found:
+        print(f"not found: {' '.join(sorted(wanted - found))}", file=sys.stderr)
 
 
 def main() -> None:
