@@ -2,8 +2,6 @@
 # Workshop defaults, read when `headroom start` launches the proxy: output shaping at level 3,
 # with 10% of requests held out so the saving is measured against unshaped ones.
 export HEADROOM_OUTPUT_SHAPER=1 HEADROOM_OUTPUT_HOLDOUT=0.1 HEADROOM_VERBOSITY_LEVEL=3
-# Clef classifies each ask in the background; 15 s covers a slow call without holding a worker long.
-export ROUTEMEGOOD_CLEF_TIMEOUT_S=15
 if [ -f "$HOME/.workshop.env" ]; then set -a; . "$HOME/.workshop.env"; set +a; fi
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export ANTHROPIC_BASE_URL=http://127.0.0.1:8787

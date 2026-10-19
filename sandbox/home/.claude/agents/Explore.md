@@ -1,6 +1,6 @@
 ---
 name: Explore
-description: Fast read-only search of the codebase. Use for finding files, symbols and usages, or reading code to answer a question.
+description: Fast read-only search of the codebase. Use proactively whenever a task needs reading more than about five files, or finding files, symbols and usages across the repo.
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---
