@@ -1,5 +1,6 @@
 """Prebaked Headroom Enterprise sandboxes on Daytona for the hands-on session.
 
+    sandbox/spawn 3                                     # easiest: 3 sandboxes, links printed
     python sandbox/workshop.py snapshot                 # build the image once (~10 min)
     python sandbox/workshop.py create --count 40        # one sandbox per attendee, 10 at a time
     python sandbox/workshop.py links                    # print each attendee's terminal link again
@@ -11,7 +12,8 @@ Credentials never go into the image. They are read from an env file (default
 created, so a snapshot can be shared and every secret stays revocable:
 
     DAYTONA_API_KEY                     Daytona account
-    HEADROOM_TOKEN, HEADROOM_ORG        org access token (hrta_...) and org slug for `headroom login`
+    HEADROOM_ACCESS_TOKEN_SANDBOX,      org access token (hrta_...) and org slug for `headroom login`;
+    HEADROOM_ORG_SANDBOX                the workshop org (falls back to HEADROOM_TOKEN, HEADROOM_ORG)
     HEADROOM_KOMPRESS_ENDPOINT[_TOKEN]  hosted Kompress model
     ROUTEMEGOOD_CLEF_URL, _TOKEN        optional; Clef /v1/systemone endpoint for complexity routing
     WORKSHOP_GITHUB_PAT                 optional; fine-grained, read-only, public repos only
@@ -25,7 +27,7 @@ import os
 import sys
 from pathlib import Path
 
-SNAPSHOT = "headroom-workshop-0.4.3-r10"
+SNAPSHOT = "headroom-workshop-0.4.3-r13"
 LABEL = {"app": "headroom-workshop"}
 KIT = Path(__file__).resolve().parent.parent
 WHEELHOUSE = KIT / "sandbox" / "headroom-enterprise-wheelhouse-0.4.3.tgz"
@@ -116,12 +118,14 @@ def cmd_snapshot(env: dict, args) -> None:
 
 
 def sandbox_env(env: dict, developer_id: str) -> dict:
-    missing = [k for k in ("HEADROOM_TOKEN", "HEADROOM_ORG") if not env.get(k)]
-    if missing:
-        sys.exit(f"{', '.join(missing)} missing from the env file; `headroom login` needs both.")
+    token = env.get("HEADROOM_ACCESS_TOKEN_SANDBOX") or env.get("HEADROOM_TOKEN")
+    org = env.get("HEADROOM_ORG_SANDBOX") or env.get("HEADROOM_ORG")
+    if not (token and org):
+        sys.exit("HEADROOM_ACCESS_TOKEN_SANDBOX and HEADROOM_ORG_SANDBOX are missing from the env "
+                 "file; `headroom login` needs both.")
     out = {
-        "HEADROOM_PORTAL_TOKEN": env["HEADROOM_TOKEN"],
-        "HEADROOM_ORG": env["HEADROOM_ORG"],
+        "HEADROOM_PORTAL_TOKEN": token,
+        "HEADROOM_ORG": org,
         "HEADROOM_DEVELOPER_ID": developer_id,
         "HEADROOM_BEACON": "off",
         **{k: env[k] for k in FORWARDED if env.get(k)},
@@ -160,6 +164,9 @@ def cmd_create(env: dict, args) -> None:
     from daytona import DaytonaError
 
     sandbox_env(env, "check")  # fail before creating anything if credentials are missing
+    if not env.get("ROUTEMEGOOD_CLEF_URL"):
+        print("warning: ROUTEMEGOOD_CLEF_URL is not in the env file; these sandboxes will not "
+              "route by task complexity.", file=sys.stderr)
     daytona = client(env)
     ids = [f"{args.prefix}-{i:02d}" for i in range(args.start, args.start + args.count)]
     failed = []

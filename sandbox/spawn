@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Spawn N workshop sandboxes from the current snapshot and print each one's terminal link.
+#   sandbox/spawn 3              # try-01..try-03
+#   sandbox/spawn 40 cto         # cto-01..cto-40
+# Credentials come from ~/env.txt (DAYTONA_API_KEY, HEADROOM_ACCESS_TOKEN_SANDBOX,
+# HEADROOM_ORG_SANDBOX, ...). The links are logins: share each only with its attendee.
+set -euo pipefail
+here="$(cd "$(dirname "$0")" && pwd)"
+exec uv run --quiet --no-project --python 3.12 --with "daytona==0.224.1" \
+  python "$here/workshop.py" create --count "${1:-1}" --prefix "${2:-try}"
