@@ -27,7 +27,7 @@ import os
 import sys
 from pathlib import Path
 
-SNAPSHOT = "headroom-workshop-0.4.3-r19"
+SNAPSHOT = "headroom-workshop-0.4.3-r20"
 LABEL = {"app": "headroom-workshop"}
 KIT = Path(__file__).resolve().parent.parent
 WHEELHOUSE = KIT / "sandbox" / "headroom-enterprise-wheelhouse-0.4.3.tgz"
