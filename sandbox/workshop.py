@@ -128,6 +128,8 @@ def sandbox_env(env: dict, developer_id: str) -> dict:
         "HEADROOM_ORG": org,
         "HEADROOM_DEVELOPER_ID": developer_id,
         "HEADROOM_BEACON": "off",
+        # 20 points lets the default Opus 5.5 route: simple turns to Haiku, the rest to Sonnet
+        "ROUTEMEGOOD_ACCURACY_LOSS_BUDGET_PCT": env.get("ROUTEMEGOOD_ACCURACY_LOSS_BUDGET_PCT", "20"),
         **{k: env[k] for k in FORWARDED if env.get(k)},
     }
     if env.get("WORKSHOP_GITHUB_PAT"):
