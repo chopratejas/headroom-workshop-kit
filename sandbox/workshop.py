@@ -5,7 +5,7 @@
     python sandbox/workshop.py create --count 40        # one sandbox per attendee, 10 at a time
     python sandbox/workshop.py links                    # print each attendee's terminal link again
     python sandbox/workshop.py delete                   # tear every workshop sandbox down
-    python sandbox/workshop.py delete cto-01 r6test-01  # delete only these
+    python sandbox/workshop.py delete dev-01 r6test-01  # delete only these
 
 Credentials never go into the image. They are read from an env file (default
 ~/env.txt) and passed to each sandbox as environment variables when it is
@@ -232,7 +232,7 @@ def main() -> None:
     create.add_argument("--count", type=int, default=1)
     create.add_argument("--start", type=int, default=1, help="first attendee number")
     create.add_argument(
-        "--prefix", default="cto", help="developer id prefix shown in the portal fleet"
+        "--prefix", default="dev", help="developer id prefix shown in the portal fleet"
     )
     create.add_argument("--auto-stop", type=int, default=120, help="minutes idle before stopping")
     create.add_argument(
