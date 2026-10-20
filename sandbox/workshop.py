@@ -234,7 +234,7 @@ def main() -> None:
     create.add_argument(
         "--prefix", default="dev", help="developer id prefix shown in the portal fleet"
     )
-    create.add_argument("--auto-stop", type=int, default=120, help="minutes idle before stopping")
+    create.add_argument("--auto-stop", type=int, default=0, help="minutes idle before stopping; 0 = never")
     create.add_argument(
         "--auto-delete", type=int, default=1440, help="minutes stopped before deleting"
     )
